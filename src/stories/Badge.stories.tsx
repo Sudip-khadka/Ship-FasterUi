@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../index.css';
-import { Badge } from '../components/ui/badge';
+import { Badge } from '@/components/ui/badge';
 import { ChevronLeft, ChevronRight, HelpCircleIcon } from 'lucide-react';
 
 const meta: Meta<typeof Badge> = {
