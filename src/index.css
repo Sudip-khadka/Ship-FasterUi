@@ -43,7 +43,33 @@
   --color-secondary-800: #1f2937;
   --color-secondary-900: #111827;
   --color-secondary-950: #030712;
-  --background-white:#ffffff;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  --color-warning-950: #451a03;
+  --color-warning: var(--color-warning-500);
+
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+  --color-success-950: #052e16;
+--color-success:var(--color-success-500);
+  --background-white: #ffffff;
 }
 
 :root {
@@ -61,8 +87,17 @@
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
+
   --destructive: var(--color-destructive-500);
   --destructive-foreground: var(--color-primary-text);
+
+  --warning: var(--color-warning);
+  --warning-foreground: var(--color-primary-text);
+
+  --success: var(--color-success);
+  --warning-foreground: var(--color-primary-text);
+
+
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
