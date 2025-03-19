@@ -40,7 +40,7 @@ import { useEffect, useRef, useState } from "react";
       onClick={() => setIsSelected(true)}
       className={`w-full max-w-[300px] h-auto overflow-hidden border-2 transition-all hover:border-primary-300 ${
         isSelected ? "border-primary-300" : "border-transparent"
-      }`} >
+      }`}>
         <CardHeader className="flex justify-between w-full items-center">
           <div className="titles flex flex-col gap-1.5">
             <CardTitle ><p className="line-clamp-1 overflow-hidden ">{title}</p></CardTitle>

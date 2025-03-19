@@ -56,7 +56,7 @@ function Button({
   return (
 <Comp
   data-slot="button"
-  className={cn(buttonVariants({ variant, size, className }), "flex items-center justify-center gap-2")}
+  className={cn(buttonVariants({ variant, size, className }), "flex items-center justify-between gap-2")}
   {...props}
 >
   {startIcon && <span className="flex items-center">{startIcon}</span>}

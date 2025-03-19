@@ -1,6 +1,6 @@
 import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger } from "../ui/tooltip"
 
-function TooltipComp({ btn,content ,className}: { 
+function TooltipComp({ btn,content ,className, ...props}: { 
     btn:React.ReactNode
     className:string;
     content:React.ReactNode
@@ -12,7 +12,7 @@ function TooltipComp({ btn,content ,className}: {
                     {btn}
                 </TooltipTrigger>
                 {/* Dont forget to pass fill when passing bg color*/}
-                <TooltipContent className={className||`bg-red-300 fill-red-300`}>
+                <TooltipContent className={className||`bg-red-300 fill-red-300`} {...props}>
                     {content}
                 </TooltipContent>
             </Tooltip>

@@ -1,8 +1,4 @@
-import {
-  ChevronRight,
-  PanelLeftIcon,
-  User,
-} from "lucide-react";
+import { Bell, ChevronRight, Code, Globe, PanelLeftIcon, Rocket, User } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -23,9 +19,19 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "../ui/collapsible";
-import ProgressBar from "./ProgressBar";
-import { Progress } from "../ui/progress";
-import Spinner from "../ui/spinner";
+// import ProgressBar from "./ProgressBar";
+// import { Progress } from "../ui/progress";
+// import Spinner from "../ui/spinner";
+// import {
+//   DropdownMenu,
+//   DropdownMenuCheckboxItem,
+//   DropdownMenuContent,
+//   DropdownMenuTrigger,
+// } from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
+import React from "react";
+// import Dropdown from "./Dropdown";
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 
 export type MenuItem = {
   title: string;
@@ -49,24 +55,30 @@ export function SideBarContentWrapper({
   variant = "sidebar",
   ...props
 }: {
-    title:string;
-    logo:React.ReactNode;
-    otherContent:React.ReactNode;
+  title: string;
+  logo: React.ReactNode;
+  otherContent: React.ReactNode;
   groupItems: MenuGroup[];
   side: "left" | "right";
   collapsible: "offcanvas" | "icon" | "none";
   variant?: "sidebar" | "floating" | "inset";
 }) {
   const { open, toggleSidebar } = useSidebar();
+  // const [statusBarChecked, setStatusBarChecked] = React.useState(false);
+  // const [activityBarChecked, setActivityBarChecked] = React.useState(false);
+  // const [panelChecked, setPanelChecked] = React.useState(false);
   return (
     <div className={`h-screen flex gap-1`} {...props}>
       <Sidebar collapsible={collapsible} side={side} variant={variant}>
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton tooltip={"Dashboard"} className="flex items-center gap-[1rem]">
+              <SidebarMenuButton
+                tooltip={"Dashboard"}
+                className="flex items-center gap-[1rem]"
+              >
                 <span className="h-5 w-5">
-                  {logo||<User className="w-5 h-5"/>}
+                  {logo || <User className="w-5 h-5" />}
                 </span>
                 <h2 className="text-[16px] font-bold"> {title}</h2>
               </SidebarMenuButton>
@@ -183,10 +195,19 @@ export function SideBarContentWrapper({
               : "pr-[3rem]"
           }`}
         >
-          {/* <Spinner className="animate-spin"/> */}
+          <div className="flex flex-col gap-5 ">
+            <Alert variant={"primary"} style={"accent"}  className="w-[25rem]">
+              <Bell/>
+            <AlertTitle>Hello</AlertTitle>
+            {/* <AlertDescription>World And universe</AlertDescription> */}
+            <Button className="w-fit">Hello Guys</Button>
+            </Alert>
+            
+          </div>
+          {/* <Spinner className="animate-spin"/>
           <Progress value={33}/>
           <ProgressBar label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere eaque delectus quidem voluptatem! Dicta fugit aliquam illum voluptates vel, minima error temporibus perferendis consequuntur sed harum commodi placeat ducimus esse." progress={50}/>
-          {otherContent}
+          {otherContent} */}
         </div>
       </div>
     </div>

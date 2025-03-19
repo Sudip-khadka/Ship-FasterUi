@@ -15,7 +15,7 @@ type Story=StoryObj<typeof Spinner>
 export const SpinnerComp:Story={
     args:{
         containerClass:"",
-        className:"text-success h-[50px] w-[50px]",
-        label:<p>Loading...</p>
+        className:"text-primary h-[50px] w-[50px]",
+        label:<p className="text-warning">Loading...</p>
     }
 }
