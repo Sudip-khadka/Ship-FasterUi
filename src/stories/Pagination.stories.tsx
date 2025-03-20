@@ -1,8 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import PaginationComp from "@/components/internal/PaginationComp";
 import '../index.css'
-import { NuqsAdapter } from "nuqs/adapters/react"; // ✅ Import NuqsAdapter
-// import { useState } from "react";
+import { NuqsAdapter } from "nuqs/adapters/react";
 
 const meta: Meta<typeof PaginationComp> = {
   title: "Components/Pagination",
