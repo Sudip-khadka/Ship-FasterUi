@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Code, Info } from "lucide-react"; // ✅ Import icons
 import '../index.css'
-import { Button } from "@/components/ui/button";
 const meta: Meta<typeof Alert> = {
   title: "Components/Alert",
   component: Alert,

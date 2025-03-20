@@ -95,12 +95,16 @@ export const LargeDropdown: Story = {
       { label: "Germany" },
       { label: "Australia" },
     ],
+
     variant: "singleSelect",
     showSearch: true,
     width: "30rem",
     btnVariant: "default",
     btnClassName: "",
     defaultValue: "Select a country",
+    tooltip: "Clear",
+    itemsClassname: "",
+    placeholder: "Select Your Country"
   },
 };
 

@@ -1,4 +1,14 @@
-import { Bell, ChevronRight, Code, Globe, PanelLeftIcon, Rocket, User } from "lucide-react";
+import {
+  Bell,
+  ChevronLeft,
+  ChevronRight,
+  Code,
+  Globe,
+  PanelLeftIcon,
+  Rocket,
+  User,
+} from "lucide-react";
+import { useQueryState } from "nuqs";
 import {
   Sidebar,
   SidebarContent,
@@ -31,7 +41,9 @@ import {
 import { Button } from "../ui/button";
 import React from "react";
 // import Dropdown from "./Dropdown";
-import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
+import { Alert, AlertTitle } from "../ui/alert";
+import PaginationComp from "./PaginationComp";
+// import PaginationComp from "./PaginationComp";
 
 export type MenuItem = {
   title: string;
@@ -64,9 +76,7 @@ export function SideBarContentWrapper({
   variant?: "sidebar" | "floating" | "inset";
 }) {
   const { open, toggleSidebar } = useSidebar();
-  // const [statusBarChecked, setStatusBarChecked] = React.useState(false);
-  // const [activityBarChecked, setActivityBarChecked] = React.useState(false);
-  // const [panelChecked, setPanelChecked] = React.useState(false);
+
   return (
     <div className={`h-screen flex gap-1`} {...props}>
       <Sidebar collapsible={collapsible} side={side} variant={variant}>
@@ -196,13 +206,13 @@ export function SideBarContentWrapper({
           }`}
         >
           <div className="flex flex-col gap-5 ">
-            <Alert variant={"primary"} style={"accent"}  className="w-[25rem]">
-              <Bell/>
-            <AlertTitle>Hello</AlertTitle>
-            {/* <AlertDescription>World And universe</AlertDescription> */}
-            <Button className="w-fit">Hello Guys</Button>
+            <Alert variant={"primary"} style={"accent"} className="w-[25rem]">
+              <Bell />
+              <AlertTitle>Hello</AlertTitle>
+              {/* <AlertDescription>World And universe</AlertDescription> */}
+              <Button className="w-fit">Hello Guys</Button>
             </Alert>
-            
+            <PaginationComp size={10} count={100} next="?page=2" previous="?page=1" />
           </div>
           {/* <Spinner className="animate-spin"/>
           <Progress value={33}/>

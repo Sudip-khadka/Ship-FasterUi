@@ -36,10 +36,12 @@ interface DropdownProps {
   btnClassName?: string;
   itemsClassname?:string;
   tooltip?:string;
+  tooltipClassName?:string;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
     tooltip,
+    tooltipClassName,
     itemsClassname,
   btnVariant = "outline",
   width = "60rem",
@@ -131,7 +133,7 @@ const [open,setOpen]=useState(false)
                       ✕
                     </span>
                   }
-                  className="hover:cursor-pointer"
+                  className={"hover:cursor-pointer"+ tooltipClassName}
                   content={
                     <p className="text-sm">
                       <strong>{tooltip}</strong>
