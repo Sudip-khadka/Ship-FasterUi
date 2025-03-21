@@ -1,9 +1,10 @@
-import { StrictMode } from 'react'
+import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { NuqsAdapter } from 'nuqs/adapters/react'
 import TableComp from './components/sanitizeEmail/tableComp.tsx'
+
 
 const data = [
     { email: "user1@example.com", status: "Tag1", reason: "Reason 1", date: "2023-01-01" },
@@ -17,6 +18,8 @@ const data = [
     { email: "user9@example.com", status: "Tag3", reason: "Reason 9", date: "2023-01-09" },
     { email: "user10@example.com", status: "Tag1", reason: "Reason 10", date: "2023-01-10" },
   ];
+  
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -26,7 +29,6 @@ createRoot(document.getElementById('root')!).render(
 
     <TableComp data={data}/>
     </div>
-
      </NuqsAdapter>
   </StrictMode>,
 )

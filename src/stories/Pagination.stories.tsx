@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import PaginationComp from "@/components/internal/PaginationComp";
 import '../index.css'
-import { NuqsAdapter } from "nuqs/adapters/react";
+import { NuqsAdapter } from "nuqs/adapters/react"; // ✅ Import NuqsAdapter
+// import { useState } from "react";
 
 const meta: Meta<typeof PaginationComp> = {
   title: "Components/Pagination",
@@ -16,7 +17,7 @@ const meta: Meta<typeof PaginationComp> = {
     },
     type: {
       control: { type: "radio" },
-      options: ["compressed", "leftAndRight", "middle", "distributed"],
+      options: ["compressed", "leftAndRight", "middle", "distributed","hybrid"],
       defaultValue: "compressed",
     },
     next:{
@@ -36,16 +37,18 @@ type Story = StoryObj<typeof PaginationComp>;
  */
 export const BasicPagination: Story = {
     args: {
-      variant: "default",
+      variant: "primary",
       size: 10,
       count: 500,
       next: "https://collegeinfoapi/college/?page=2",
       previous: "https://collegeinfoapi/college/?page=2",
-      type: "distributed",
+      type: "hybrid",
       iconOnly: false,
-      activeButtonClassName: "!bg-secondary-900 text-white",
+      activeButtonClassName: "!bg-primary text-white",
       disabledButtonClassName: "bg-success-500",
-      currentPage: 10
+      currentPage: 10,
+      className: "",
+      buttonClassName: "bg-primary-50"
     },
     decorators: [
       (Story) => (

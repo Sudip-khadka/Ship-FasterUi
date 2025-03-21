@@ -1,6 +1,6 @@
 {
-  "name": "designsystem",
-  "private": true,
+  "name": "shipfasterui",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {

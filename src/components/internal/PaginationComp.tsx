@@ -18,7 +18,8 @@ interface PaginationCompProps {
   onPageChange?: (page: number) => void;
   currentPage?: number;
   setPage?: (page: number) => void;
-  type?: "compressed" | "leftAndRight" | "middle" | "distributed";
+  type?: "compressed" | "leftAndRight" | "middle" | "distributed"|"hybrid";
+  textClassName?:string;
 }
 
 function PaginationComp({
@@ -33,6 +34,7 @@ function PaginationComp({
   buttonClassName = "",
   activeButtonClassName = "!bg-primary-100 !text-primary-700",
   disabledButtonClassName = "",
+  textClassName="md:text-sm",
   iconPrev = <ChevronLeft />,
   iconNext = <ChevronLeft className="rotate-180" />,
   onPageChange,
@@ -119,28 +121,103 @@ function PaginationComp({
         return "bg-secondary-100 hover:bg-secondary-200";
     }
   };
+  // if(type==="hybrid"){
+  //   return (
+  //     <div className={`buttons flex gap-3 items-center`}>
+  //     {count > 0 && (
+  //        <button
+  //          onClick={() => prevPage && goToPage(prevPage)}
+  //          className={`flex px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base rounded hover:cursor-pointer   
+  //            ${getVariantStyles()} ${buttonClassName} ${
+  //            !prevPage ? disabledButtonClassName : ""
+  //          }`}
+  //          disabled={!prevPage}
+  //        >
+  //          {iconPrev}
+  //          {!iconOnly && <span className="hidden sm:inline">Previous</span>}
+  //        </button>
+  //      )}
+  //      {(
+  //        <div className={`buttons flex  w-fit max-md:w-full justify-between gap-3`}>
+  //          {getPageNumbers().map((pg, index) =>
+  //            typeof pg === "number" ? (
+  //              <button
+  //                key={index}
+  //                onClick={() => goToPage(pg)}
+  //                className={`hover:cursor-pointer px-1 sm:px-2 py-1 text-xs sm:text-sm rounded ${
+  //                    pg === currentPage ? activeButtonClassName : ""
+  //                  } 
+  //                ${getVariantStyles()} ${buttonClassName} `}
+  //              >
+  //                {pg}
+  //              </button>
+  //            ) : (
+  //              <span key={index} className={`px-1 text-2xl sm:text-base  sm:px-2 ${variant==="primary"?"text-primary":""}`}>
+  //                ...
+  //              </span>
+  //            )
+  //          )}
+  //        </div>
+  //      )}
+  //        <p className={textClassName}>
+  //        Showing{" "}
+  //        <span className={`${variant === "primary" ? "text-primary" : ""}`}>
+  //          {currentPage}
+  //        </span>{" "}
+  //        of{" "}
+  //        <span className={`${variant === "primary" ? "text-primary" : ""}`}>
+  //          {size}
+  //        </span>{" "}
+  //        Results of{" "}
+  //        <span className={`${variant === "primary" ? "text-primary" : ""}`}>
+  //          {count}
+  //        </span>
+  //      </p>
+  //      {count > 0 && (
+  //        <button
+  //          onClick={() => nextPage && goToPage(nextPage)}
+  //          className={`flex px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base rounded hover:cursor-pointer 
+  //            ${getVariantStyles()} ${buttonClassName} ${
+  //            !nextPage ? disabledButtonClassName : ""
+  //          }`}
+  //          disabled={!nextPage}
+  //        >
+  //          {!iconOnly && <span className="hidden sm:inline">Next</span>}
+  //          {iconNext}
+  //        </button>
+  //      )}
+  //     </div>
+  //   )
+  // }
   return (
     <div
-      className={`w-full flex items-center justify-center gap-2 mt-4 ${className} 
+      className={`w-full flex items-center justify-center gap-2 mt-4  
         sm:gap-1 md:gap-2 lg:gap-3 ${
-          type === "distributed" ? " justify-evenly" : ""
+          type === "distributed" ? " justify-evenly" : className
         }`}
     >
-      {count > 0 && (
+      <p className={textClassName}>
+        <span className="opacity-70">
+          Showing: 
+        </span>
+        {" "+size} of {count}
+      </p>
+     <div className={`buttons flex gap-3 items-center ${type==="middle"?className:type==="distributed"?"w-full justify-evenly":""} `}>
+     {count > 0 && (
         <button
           onClick={() => prevPage && goToPage(prevPage)}
-          className={`flex px-1 sm:px-2 py-1 text-xs sm:text-sm rounded hover:cursor-pointer  
+          className={`flex px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base rounded hover:cursor-pointer   
             ${getVariantStyles()} ${buttonClassName} ${
             !prevPage ? disabledButtonClassName : ""
           }`}
           disabled={!prevPage}
         >
           {iconPrev}
-          {!iconOnly && <span className="hidden sm:inline">Previous</span>}
+          {(!iconOnly && type!=="hybrid") && <span className="hidden sm:inline">Previous</span>}
         </button>
       )}
-      {(type === "compressed" || type === "distributed") && (
-        <div className={`buttons flex  ${type==="distributed"?"w-[30%] max-md:w-full justify-between":"gap-1"}`}>
+      {(type === "compressed" || type === "distributed" || type==="hybrid") && (
+        <div className={`buttons flex  ${type==="distributed"?"w-fit max-md:w-full justify-between gap-3":"gap-1"}`}>
           {getPageNumbers().map((pg, index) =>
             typeof pg === "number" ? (
               <button
@@ -162,7 +239,7 @@ function PaginationComp({
         </div>
       )}
       {type === "middle" && (
-        <p className="md:text-sm">
+        <p className={textClassName}>
         Showing{" "}
         <span className={`${variant === "primary" ? "text-primary" : ""}`}>
           {currentPage}
@@ -186,12 +263,13 @@ function PaginationComp({
           }`}
           disabled={!nextPage}
         >
-          {!iconOnly && <span className="hidden sm:inline">Next</span>}
+          {(!iconOnly && type!=="hybrid") && <span className="hidden sm:inline">Next</span>}
           {iconNext}
         </button>
       )}
+     </div>
       {type === "leftAndRight" && (
-        <p className="md:text-sm">
+        <p className={textClassName}>
           Showing{" "}
           <span className={`${variant === "primary" ? "text-primary" : ""}`}>
             {currentPage}
