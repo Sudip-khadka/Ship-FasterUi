@@ -28,7 +28,6 @@
     "lucide-react": "^0.479.0",
     "nuqs": "^2.4.1",
     "react": "^19.0.0",
-    "react-day-picker": "^8.10.1",
     "react-dom": "^19.0.0",
     "react-select": "^5.10.1",
     "storybook": "^8.6.4",
