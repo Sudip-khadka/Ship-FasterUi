@@ -1,4 +1,4 @@
-import { Minus, SearchIcon } from 'lucide-react';
+import { SearchIcon } from 'lucide-react';
 import { Badge } from '../ui/badge'
 import { useQueryState } from 'nuqs';
 // import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
@@ -30,6 +30,7 @@ function CustomTableHeader() {
         shallow: false,
         throttleMs: 1000,
       });
+
       const [startDate, setStartDate] = useQueryState("startDate", {
         defaultValue: `${dateRange.startDate}`,
         shallow: false,
@@ -57,7 +58,14 @@ function CustomTableHeader() {
           setEndDate(null); 
         }
       }, [dateRange, setStartDate, setEndDate]);
-      
+      const [_page, setPage] = useQueryState("page", {
+        defaultValue: "1",
+        shallow: false,
+        throttleMs: 1000,
+      });
+      useEffect(()=>{
+          setPage("1")
+      },[search,startDate,endDate])
   return (
     <div className="table-cardheader flex items-center justify-between flex-wrap pb-5">
         <div className="tags flex gap-4">

@@ -1,14 +1,9 @@
 import {
   Bell,
-  ChevronLeft,
   ChevronRight,
-  Code,
-  Globe,
   PanelLeftIcon,
-  Rocket,
   User,
 } from "lucide-react";
-import { useQueryState } from "nuqs";
 import {
   Sidebar,
   SidebarContent,
@@ -42,8 +37,6 @@ import { Button } from "../ui/button";
 import React from "react";
 // import Dropdown from "./Dropdown";
 import { Alert, AlertTitle } from "../ui/alert";
-import PaginationComp from "./PaginationComp";
-// import PaginationComp from "./PaginationComp";
 
 export type MenuItem = {
   title: string;
@@ -209,15 +202,10 @@ export function SideBarContentWrapper({
             <Alert variant={"primary"} style={"accent"} className="w-[25rem]">
               <Bell />
               <AlertTitle>Hello</AlertTitle>
-              {/* <AlertDescription>World And universe</AlertDescription> */}
               <Button className="w-fit">Hello Guys</Button>
             </Alert>
-            <PaginationComp size={10} count={100} next="?page=2" previous="?page=1" />
           </div>
-          {/* <Spinner className="animate-spin"/>
-          <Progress value={33}/>
-          <ProgressBar label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere eaque delectus quidem voluptatem! Dicta fugit aliquam illum voluptates vel, minima error temporibus perferendis consequuntur sed harum commodi placeat ducimus esse." progress={50}/>
-          {otherContent} */}
+         
         </div>
       </div>
     </div>

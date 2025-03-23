@@ -7,6 +7,7 @@ import { ChevronLeft, HelpCircleIcon } from "lucide-react";
 const meta: Meta<typeof DialogComponent> = {
     title: "UI/Dialog",
     component: DialogComponent,
+    tags:["autodocs"],
     argTypes: {
         variant: {
             control: { type: "select" },

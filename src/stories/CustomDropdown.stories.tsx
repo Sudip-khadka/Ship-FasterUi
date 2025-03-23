@@ -3,8 +3,9 @@ import Dropdown from "@/components/internal/Dropdown";
 import { Bird, Code, Globe, Rocket } from "lucide-react";
 
 const meta: Meta<typeof Dropdown> = {
-  title: "Components/Dropdown",
+  title: "Components/Custom Dropdown",
   component: Dropdown,
+  tags:["autodocs"],
   argTypes: {
     variant: {
       control: "radio",

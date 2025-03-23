@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, HelpCircleIcon } from 'lucide-react';
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
+  tags:["autodocs"],
   argTypes: {
     variant: {
       control: "select",

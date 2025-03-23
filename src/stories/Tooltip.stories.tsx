@@ -6,6 +6,7 @@ import { Plus, ChevronRight } from "lucide-react"; // Example icons
 const meta: Meta<typeof tooltipComp> = {
     title: "Components/Tooltip",
     component: tooltipComp,
+    tags:["autodocs"],
     argTypes: {
         btn: {
             control: false,

@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const meta: Meta<typeof Skeleton> = {
   title: "Components/Skeleton",
   component: Skeleton,
+  tags:["autodocs"],
   argTypes: {
     className: { control: "text" },
   },

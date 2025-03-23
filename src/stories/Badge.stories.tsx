@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, HelpCircleIcon } from 'lucide-react';
 const meta: Meta<typeof Badge> = {
   title: "Components/Badge",
   component: Badge,
+  tags:["autodocs"],
   argTypes: {
     variant: {
       control: "select",

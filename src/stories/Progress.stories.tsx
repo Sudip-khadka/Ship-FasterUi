@@ -5,6 +5,7 @@ import { TvIcon } from "lucide-react";
 const meta: Meta<typeof ProgressBarComponent> = {
     title: "UI/ProgressBar",
     component: ProgressBarComponent,
+    tags:["autodocs"],
 }
 export default meta;
 type Story = StoryObj<typeof ProgressBarComponent>

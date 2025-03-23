@@ -6,6 +6,7 @@ import React, { useState } from "react";
 const meta: Meta<typeof DropdownMenu> = {
     title: "Components/DropdownMenu",
     component: DropdownMenu,
+    tags:["autodocs"],
     argTypes: {},
   };
   

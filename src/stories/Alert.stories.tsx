@@ -5,6 +5,7 @@ import '../index.css'
 const meta: Meta<typeof Alert> = {
   title: "Components/Alert",
   component: Alert,
+  tags:["autodocs"],
   argTypes: {
     variant: {
       control: "radio",

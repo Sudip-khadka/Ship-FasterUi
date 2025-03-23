@@ -7,6 +7,7 @@ import { ArrowBigDownIcon, ChevronDownIcon } from 'lucide-react';
 const meta: Meta<typeof cardComp> = {
     title: "UI/Cards",
     component: cardComp,
+    tags:["autodocs"],
     argTypes: {
         title: { control: 'text' },
         description: { control: 'text' },

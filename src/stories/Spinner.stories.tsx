@@ -4,6 +4,7 @@ import '../index.css'
 const meta:Meta<typeof Spinner>={
     title:"UI/Spinner",
     component:Spinner,
+    tags:["autodocs"],
     argTypes:{
         containerClass:{
             control:false

@@ -9,6 +9,7 @@ import { IconLogo } from "./Dialog.stories";
 export default {
   title: "UI/Sidebar",
   component: SideBarContentWrapper,
+  tags:["autodocs"],
   parameters: {
     layout: "fullscreen",
   },

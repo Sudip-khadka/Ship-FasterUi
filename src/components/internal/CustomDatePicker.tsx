@@ -219,7 +219,7 @@ export function DateRangePicker({
         </div>
       </div>
       {showDatePicker&&
-      <div className="flex flex-col absolute top-[60px] z-[10] right-0 bg-white">
+      <div className="flex flex-col absolute top-[60px] z-[10] right-0 bg-white border p-2 rounded-xl">
       <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 ">
         <div className="flex flex-col gap-2">
           <Calendar

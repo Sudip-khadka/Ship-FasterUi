@@ -7,6 +7,7 @@ import { NuqsAdapter } from "nuqs/adapters/react"; // ✅ Import NuqsAdapter
 const meta: Meta<typeof PaginationComp> = {
   title: "Components/Pagination",
   component: PaginationComp,
+  tags:["autodocs"],
   argTypes: {
     count: { control: { type: "number" }, defaultValue: 100 },
     size: { control: { type: "number" }, defaultValue: 10 },

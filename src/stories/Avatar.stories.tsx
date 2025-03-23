@@ -4,6 +4,7 @@ import Avatar from '@/components/ui/avatar'
 export default {
     title: 'Components/Avatar',
     component: Avatar,
+    tags:["autodocs"],
     argTypes: {
         type: {
             control: { type: 'select' },
