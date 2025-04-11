@@ -24,19 +24,10 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "../ui/collapsible";
-// import ProgressBar from "./ProgressBar";
-// import { Progress } from "../ui/progress";
-// import Spinner from "../ui/spinner";
-// import {
-//   DropdownMenu,
-//   DropdownMenuCheckboxItem,
-//   DropdownMenuContent,
-//   DropdownMenuTrigger,
-// } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import React from "react";
-// import Dropdown from "./Dropdown";
 import { Alert, AlertTitle } from "../ui/alert";
+import { Rating } from "../ui/rating";
 
 export type MenuItem = {
   title: string;
@@ -51,8 +42,11 @@ export type MenuGroup = {
   items: MenuItem[];
 };
 export function SideBarContentWrapper({
+  sideBarHeader,
+  sideBarFooter,
   groupItems,
   collapsible,
+  showSearchBar=false,
   side,
   logo,
   title,
@@ -60,9 +54,12 @@ export function SideBarContentWrapper({
   variant = "sidebar",
   ...props
 }: {
+  sideBarHeader?:React.ReactElement;
+  sideBarFooter?:React.ReactElement;
   title: string;
   logo: React.ReactNode;
   otherContent: React.ReactNode;
+  showSearchBar?:boolean;
   groupItems: MenuGroup[];
   side: "left" | "right";
   collapsible: "offcanvas" | "icon" | "none";
@@ -74,7 +71,7 @@ export function SideBarContentWrapper({
     <div className={`h-screen flex gap-1`} {...props}>
       <Sidebar collapsible={collapsible} side={side} variant={variant}>
         <SidebarHeader>
-          <SidebarMenu>
+        {sideBarHeader||<SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton
                 tooltip={"Dashboard"}
@@ -86,7 +83,7 @@ export function SideBarContentWrapper({
                 <h2 className="text-[16px] font-bold"> {title}</h2>
               </SidebarMenuButton>
             </SidebarMenuItem>
-          </SidebarMenu>
+          </SidebarMenu>}
         </SidebarHeader>
         <div
           className={`absolute ${
@@ -100,6 +97,7 @@ export function SideBarContentWrapper({
           <SidebarTrigger className="rounded-full bg-secondary-50 text-secondary-900" />
         </div>
         <SidebarContent>
+          {showSearchBar&&
           <SidebarGroup>
             <SidebarGroupContent>
               <SidebarMenu>
@@ -114,7 +112,7 @@ export function SideBarContentWrapper({
                 </SidebarMenuButton>
               </SidebarMenu>
             </SidebarGroupContent>
-          </SidebarGroup>
+          </SidebarGroup>}
           {groupItems.map((group) => (
             <SidebarGroup key={group.id}>
               {group.label && (
@@ -168,14 +166,14 @@ export function SideBarContentWrapper({
         </SidebarContent>
 
         <SidebarFooter>
-          <SidebarMenu>
+          {sideBarFooter||<SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton>
                 <PanelLeftIcon className="size-4" />
                 Collapse
               </SidebarMenuButton>
             </SidebarMenuItem>
-          </SidebarMenu>
+          </SidebarMenu>}
         </SidebarFooter>
       </Sidebar>
 
@@ -199,6 +197,9 @@ export function SideBarContentWrapper({
           }`}
         >
           <div className="flex flex-col gap-5 ">
+            <div className="rating w-fit">
+            <Rating value={2.5} readonly={false}/>
+            </div>
             <Alert variant={"primary"} style={"accent"} className="w-[25rem]">
               <Bell />
               <AlertTitle>Hello</AlertTitle>

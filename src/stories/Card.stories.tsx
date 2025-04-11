@@ -1,76 +1,95 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import '../index.css';
-import cardComp from '@/components/internal/cardComp';
-import { Button } from '@/components/ui/button';
-import { ArrowBigDownIcon, ChevronDownIcon } from 'lucide-react';
+// stories/Card.stories.tsx
 
-const meta: Meta<typeof cardComp> = {
-    title: "UI/Cards",
-    component: cardComp,
-    tags:["autodocs"],
-    argTypes: {
-        title: { control: 'text' },
-        description: { control: 'text' },
-        content: { control: 'text' },
-        badge: { 
-            control: 'object',
-            defaultValue: { label: '', variant: 'success' },
-            table: {
-                type: { summary: 'object' },
-                defaultValue: { summary: '{ label: string, variant: "success" | "warning" }' },
-            },
-        },
-        cardFooter: { control: 'object' }
-    }
-}
-export default meta;
+import type { Meta, StoryObj } from "@storybook/react"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  CardAction,
+} from "@/components/ui/card"
 
-type Story = StoryObj<typeof cardComp>
-
-export const Card: Story = {
-    args: {
-        title: "List Name",
-        description: "20th Feb",
-        content: (
-            <div className="flex flex-col">
-                <p>Hello Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque ab labore repellendus reprehenderit placeat esse fugiat, laborum totam ratione beatae voluptas cumque. Alias commodi maiores ad quibusdam atque nesciunt debitis?</p>
-                <p>Guys</p>
-                <p>Chai</p>
-                <p>Pilow</p>
-            </div>
-        ),
-        badge: {
-            label: "Tag 1",
-        },
-        cardFooter: (
-            <div className="btncontainer w-full">
-                <Button variant="default" className="w-full">Validate File</Button>
-            </div>
-        )
-    }
+const meta: Meta<typeof Card> = {
+  title: "Components/Card",
+  component: Card,
+  tags: ["autodocs"],
 }
 
-export const CardSecondary: Story = {
-    args: {
-        title: "List Name",
-        description: "20th Feb",
-        content: (
-            <div className="flex flex-col">
-                <p>Hello</p>
-                <p>Guys</p>
-                <p>Chai</p>
-                <p>Pilow</p>
-            </div>
-        ),
-        badge: {
-            label: "Tag 2",
-            variant: "warning"
-        },
-        cardFooter: (
-            <div className="btncontainer w-full flex justify-evenly">
-                <Button variant="secondary" className="w-fit" endIcon={<ChevronDownIcon />}>Download</Button>
-                <Button variant="tertiary" className="w-fit" endIcon={<ArrowBigDownIcon className='-rotate-120' />}>View</Button>
-            </div>
-        )
-    }
+export default meta
+type Story = StoryObj<typeof Card>
+
+export const BasicCard: Story = {
+  render: () => (
+    <Card>
+      <CardHeader>
+        <CardTitle>Basic Card</CardTitle>
+        <CardDescription>This is a simple card without any actions.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p>This is some basic content inside the card.</p>
+      </CardContent>
+      <CardFooter>
+        <p className="text-sm text-muted-foreground">Footer content</p>
+      </CardFooter>
+    </Card>
+  ),
+}
+
+export const CardWithAction: Story = {
+  render: () => (
+    <Card>
+      <CardHeader>
+        <CardTitle>Card with Action</CardTitle>
+        <CardDescription>Includes a top-right action element.</CardDescription>
+        <CardAction>
+          <button className="text-blue-600 text-sm hover:underline">Edit</button>
+        </CardAction>
+      </CardHeader>
+      <CardContent>
+        <p>This card showcases how to use an action slot.</p>
+      </CardContent>
+    </Card>
+  ),
+}
+
+export const CardOnlyHeader: Story = {
+  render: () => (
+    <Card>
+      <CardHeader>
+        <CardTitle>Title Only</CardTitle>
+      </CardHeader>
+    </Card>
+  ),
+}
+
+export const CardOnlyContent: Story = {
+  render: () => (
+    <Card>
+      <CardContent>
+        <p>This card only has content.</p>
+      </CardContent>
+    </Card>
+  ),
+}
+
+export const FullCardExample: Story = {
+  render: () => (
+    <Card>
+      <CardHeader>
+        <CardTitle>Full Card</CardTitle>
+        <CardDescription>This card has all the sections.</CardDescription>
+        <CardAction>
+          <button className="text-sm font-medium text-primary hover:underline">Settings</button>
+        </CardAction>
+      </CardHeader>
+      <CardContent>
+        <p>This is the main content area of the card.</p>
+      </CardContent>
+      <CardFooter>
+        <p className="text-sm text-muted-foreground">Last updated 2 hours ago</p>
+      </CardFooter>
+    </Card>
+  ),
 }

@@ -1,144 +1,151 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Dropdown from "@/components/internal/Dropdown";
-import { Bird, Code, Globe, Rocket } from "lucide-react";
+import CustomDropDown,{  DropdownItemType } from "@/components/internal/dropdowns/CustomDropDown"; 
+import { Home, Settings, Laptop, Cloud, PlusCircle, User } from "lucide-react";
+// import CustomDropDown, {'{'} DropdownItemType,GroupType,ItemType,LabelType,SeparatorType,SubmenuType {'}'} from "@/components/internal/dropdowns/CustomDropDown
 
-const meta: Meta<typeof Dropdown> = {
-  title: "Components/Custom Dropdown",
-  component: Dropdown,
-  tags:["autodocs"],
-  argTypes: {
-    variant: {
-      control: "radio",
-      options: ["singleSelect", "multiselect"],
-      description: "Choose between single select and multi-select",
+//important ✅ explictly define the type of your items or else yoy might have type errors 
+
+
+// Define sample items for the dropdown
+const basicItems: DropdownItemType[] = [
+  {
+    id: "1",
+    type: "item",
+    label: "Home",
+    icon: <Home className="h-4 w-4" />,
+  },
+  {
+    id: "2",
+    type: "item",
+    label: "Settings",
+    icon: <Settings className="h-4 w-4" />,
+  },
+  {
+    id: "3",
+    type: "separator",
+  },
+  {
+    id: "4",
+    type: "item",
+    label: "Logout",
+    icon: <User className="h-4 w-4" />,
+  },
+];
+
+const submenuItems: DropdownItemType[] = [
+  {
+    id: "1",
+    type: "submenu",
+    label: "Devices",
+    icon: <Laptop className="h-4 w-4" />,
+    submenuType: "collapsible",
+    items: [
+      {
+        id: "1-1",
+        type: "item",
+        label: "Desktop",
+        icon: <Laptop className="h-4 w-4" />,
+      },
+      {
+        id: "1-2",
+        type: "item",
+        label: "Mobile",
+        icon: <Laptop className="h-4 w-4" />,
+      },
+    ],
+  },
+  {
+    id: "2",
+    type: "submenu",
+    label: "Cloud Services",
+    icon: <Cloud className="h-4 w-4" />,
+    submenuType: "default",
+    items: [
+      {
+        id: "2-1",
+        type: "item",
+        label: "GitHub",
+        icon: <Laptop className="h-4 w-4" />,
+      },
+      {
+        id: "2-2",
+        type: "item",
+        label: "Vercel",
+        icon: <Laptop className="h-4 w-4" />,
+      },
+    ],
+  },
+];
+
+const groupItems: DropdownItemType[] = [
+  {
+    id: "1",
+    type: "group",
+    label: "Team",
+    items: [
+      {
+        id: "1-1",
+        type: "item",
+        label: "New Team",
+        icon: <PlusCircle className="h-4 w-4" />,
+      },
+      {
+        id: "1-2",
+        type: "item",
+        label: "Invite Users",
+        icon: <User className="h-4 w-4" />,
+      },
+    ],
+  },
+];
+
+export default {
+  title: "Components/CustomDropDown",
+  component: CustomDropDown,
+  
+} as Meta<typeof CustomDropDown>;
+
+export const Basic: StoryObj<typeof CustomDropDown> = {
+    // const [open,setOpen]=useState(false)
+  args: {
+    items: basicItems,
+    trigger: <button>Open Menu</button>,
+    align:"start"
+},
+};
+
+export const WithSubmenus: StoryObj<typeof CustomDropDown> = {
+    args: {
+        items: submenuItems,
+        trigger: <button>Open Menu with Submenus</button>,
+        align:"start"
     },
-    showSearch: {
-      control: "boolean",
-      description: "Enable or disable search input",
+};
+
+export const CollapsibleSubmenu: StoryObj<typeof CustomDropDown> = {
+    args: {
+        items: submenuItems,
+        trigger: <button>Open Menu with Collapsible Submenu</button>,
+        align:"start"
     },
-    btnVariant: {
-      control: "radio",
-      options: ["default", "secondary", "tertiary", "link", "destructive", "outline"],
-      description: "Button variant styles",
-    },
-    width: {
-      control: "text",
-      description: "Set the dropdown width (e.g., '20rem', '50%')",
-    },
-    btnClassName: {
-      control: "text",
-      description: "Additional Tailwind classes for the button",
-    },
-    placeholder: {
-      control: "text",
-      description: "Placeholder for search input",
-    },
-    defaultValue: {
-      control: "text",
-      description: "Default selected value before user selects anything",
-    },
-    onSelect: {
-      action: "selected",
-      description: "Callback function when an item is selected",
-    },
+};
+
+export const WithGroups: StoryObj<typeof CustomDropDown> = {
+    args: {
+        items: groupItems,
+        trigger: <button>Open Menu with Groups</button>,
+        align:"start"
   },
 };
 
-export default meta;
-
-type Story = StoryObj<typeof Dropdown>;
-
-// ✅ Single Select with Icons
-export const SingleSelect: Story = {
+export const FullMenu: StoryObj<typeof CustomDropDown> = {
   args: {
     items: [
-      { label: "World", icon: <Globe /> },
-      { label: "Rocket", icon: <Rocket /> },
-      { label: "Code", icon: <Code /> },
+      ...basicItems,
+      ...submenuItems,
+      ...groupItems,
     ],
-    variant: "singleSelect",
-    showSearch: false,
-    width: "20rem",
-    btnVariant: "outline",
-    btnClassName: "",
-    defaultValue: "Select an option",
-  },
-};
-
-// ✅ Multi-Select with Search (Fixed)
-export const MultiSelectWithSearch: Story = {
-  args: {
-    items: [
-      { label: "Bird" ,icon:<Bird/>},
-      { label: "Vue" },
-      { label: "Angular" },
-      { label: "Svelte" },
-      { label: "Next.js" },
-    ],
-
-    variant: "multiselect",
-    showSearch: true,
-    width: "25rem",
-    btnVariant: "secondary",
-    btnClassName: "",
-    defaultValue: "Select frameworks",
-    tooltip: "Clear All"
-  },
-};
-
-// ✅ Large Dropdown with Custom Button
-export const LargeDropdown: Story = {
-  args: {
-    items: [
-      { label: "USA" },
-      { label: "Canada" },
-      { label: "UK" },
-      { label: "Germany" },
-      { label: "Australia" },
-    ],
-
-    variant: "singleSelect",
-    showSearch: true,
-    width: "30rem",
-    btnVariant: "default",
-    btnClassName: "",
-    defaultValue: "Select a country",
-    tooltip: "Clear",
-    itemsClassname: "",
-    placeholder: "Select Your Country"
-  },
-};
-
-// ✅ Dropdown with Custom Placeholder
-export const CustomPlaceholder: Story = {
-  args: {
-    items: [
-      { label: "Football" },
-      { label: "Basketball" },
-      { label: "Tennis" },
-      { label: "Cricket" },
-      { label: "Hockey" },
-    ],
-    variant: "singleSelect",
-    showSearch: true,
-    width: "22rem",
-    btnVariant: "outline",
-    btnClassName: "",
-    defaultValue: "Pick a sport as\n",
-    placeholder: "Type to search...",
-  },
-};
-
-// ✅ Empty Dropdown with No Results
-export const NoResults: Story = {
-  args: {
-    items: [],
-    variant: "singleSelect",
-    showSearch: true,
-    width: "20rem",
-    btnVariant: "destructive",
-    btnClassName: "",
-    defaultValue: "Nothing here",
-    placeholder: "Search...",
+    trigger: <button className="bg-primary-200 p-3 rounded-lg text-primary">Open Full Menu</button>,
+    // itemClassName:"text-destructive-500 "
   },
 };

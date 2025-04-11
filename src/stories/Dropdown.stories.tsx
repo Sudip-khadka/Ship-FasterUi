@@ -1,178 +1,50 @@
-import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuShortcut, DropdownMenuRadioItem, DropdownMenuRadioGroup, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from "@/components/ui/dropdown-menu";
 import { Meta, StoryObj } from "@storybook/react";
-import React, { useState } from "react";
+import { Dropdown } from "../ui/internal/DropDown";
 
-const meta: Meta<typeof DropdownMenu> = {
-    title: "Components/DropdownMenu",
-    component: DropdownMenu,
-    tags:["autodocs"],
-    argTypes: {},
-  };
-  
-  export default meta;
+const meta: Meta<typeof Dropdown> = {
+  title: "Components/Dropdown",
+  component: Dropdown,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+};
 
-export const Basic = () => (
-    <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button>Open Menu</Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent>
-      <DropdownMenuItem>New Tab</DropdownMenuItem>
-      <DropdownMenuItem>New Window</DropdownMenuItem>
-      <DropdownMenuItem>New Private Window</DropdownMenuItem>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>Settings</DropdownMenuItem>
-      <DropdownMenuItem>Help</DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
-);
-export const WithCheckboxes: StoryObj<typeof DropdownMenu> = {
-    render: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button>Open Menu</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuCheckboxItem>
-           
-            <input id="checkbox1" type="checkbox"/>
-            <label htmlFor="checkbox1"> Show Status Bar
-            </label>
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem checked={false}>
-            <input id="checkbox" type="checkbox"/>
-            <label htmlFor="checkbox">Show Activity Bar
-            </label>
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem>
-          <input id="checkbox2" type="checkbox"/>
-            <label htmlFor="checkbox2">Show Panel
-            </label>
-            
-          </DropdownMenuCheckboxItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    ),
-  };
+export default meta;
+type Story = StoryObj<typeof Dropdown>;
 
-  export const WithRadioItems: StoryObj<typeof DropdownMenu> = {
-    render: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button>Open Menu</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuRadioGroup value="light">
-            <DropdownMenuRadioItem value="light">
-              Light
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="dark">
-              Dark
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="system">
-              System
-            </DropdownMenuRadioItem>
-          </DropdownMenuRadioGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    ),
-  };
-  
-  export const WithSubmenu: StoryObj<typeof DropdownMenu> = {
-    render: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button>Open Menu</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuItem>New Tab</DropdownMenuItem>
-          <DropdownMenuItem>New Window</DropdownMenuItem>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              More Options
-            </DropdownMenuSubTrigger>
-            <DropdownMenuSubContent>
-              <DropdownMenuItem>Save As...</DropdownMenuItem>
-              <DropdownMenuItem>Print</DropdownMenuItem>
-              <DropdownMenuItem>Export</DropdownMenuItem>
-            </DropdownMenuSubContent>
-          </DropdownMenuSub>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    ),
-  };
-  
-  export const WithLabelsAndShortcuts: StoryObj<typeof DropdownMenu> = {
-    render: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button>Open Menu</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>File</DropdownMenuLabel>
-          <DropdownMenuItem>
-            New Tab <DropdownMenuShortcut>⌘T</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            New Window <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuLabel>Edit</DropdownMenuLabel>
-          <DropdownMenuItem>
-            Undo <DropdownMenuShortcut>⌘Z</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Redo <DropdownMenuShortcut>⌘Y</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    ),
-  };
-  export const WithInput: StoryObj<typeof DropdownMenu> = {
-    render: () => {
-        const [search, setSearch] = React.useState("");
-        const items = ["apple", "Ball", "Cat", "Dog", "Plane"];
-        const filteredItems = items.filter((item) =>
-            item.toLowerCase().includes(search.toLowerCase())
-        );
-        const [selectedValue,setSelectedValue]=useState("Select");
+export const Default: Story = {
+  args: {
+    placeholder: "Placeholder Name",
+    items: [
+      { id: 1, label: "Item 1" },
+      { id: 2, label: "Item 2", checked: true },
+      { id: 3, label: "Item 3" },
+      { id: 4, label: "Item 4" },
+      { id: 5, label: "Item 5" },
+    ],
+  },
+  render: (args) => (
+    <div style={{ width: "250px" }}>
+      <Dropdown {...args} />
+    </div>
+  ),
+};
 
-        return (
-            <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                    <Button>{selectedValue}</Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                    <div style={{ padding: "8px" }} onClick={(e) => e.stopPropagation()}>
-                        <input
-                            type="text"
-                            placeholder="Search..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            style={{
-                                width: "100%",
-                                padding: "4px",
-                                border: "1px solid #ccc",
-                                borderRadius: "4px",
-                            }}
-                            onClick={(e) => e.stopPropagation()}
-                            onKeyDown={(e) => e.stopPropagation()}
-                            autoFocus
-                        />
-                    </div>
-                    <DropdownMenuSeparator />
-                    {filteredItems.length > 0 ? (
-                        filteredItems.map((item, index) => (
-                            <DropdownMenuItem key={index} onClick={()=>setSelectedValue(item)}>{item}</DropdownMenuItem>
-                        ))
-                    ) : (
-                        <DropdownMenuItem disabled>No results found</DropdownMenuItem>
-                    )}
-                </DropdownMenuContent>
-            </DropdownMenu>
-        );
-    },
+export const WithPreselectedItems: Story = {
+  args: {
+    placeholder: "Placeholder",
+    items: [
+      { id: 1, label: "Item 1", checked: false },
+      { id: 2, label: "Item 2", checked: true },
+      { id: 3, label: "Item 3", checked: false },
+      { id: 4, label: "Item 4", checked: true },
+      { id: 5, label: "Item 5", checked: false },
+    ],
+  },
+  render: (args) => (
+    <div style={{ width: "250px" }}>
+      <Dropdown {...args} />
+    </div>
+  ),
 };

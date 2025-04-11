@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import * as SliderPrimitive from "@radix-ui/react-slider"
 
@@ -27,7 +25,7 @@ export interface SliderProps extends React.ComponentPropsWithoutRef<typeof Slide
   startIcon?:React.ReactNode
   endIcon?:React.ReactNode
   iconPosition?:"center"|"bottom"
-containerClassName?:string
+containerClassName?:string;
 }
 
 const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, SliderProps>(
@@ -68,7 +66,16 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
     const [localValue, setLocalValue] = React.useState<number[]>(
       Array.isArray(value) ? value : Array.isArray(defaultValue) ? defaultValue : [min],
     )
-
+if(defaultValue && defaultValue.length>2){
+  throw new Error("default Value Cant be More Than 2")
+}
+if(defaultValue){
+  defaultValue.forEach(value => {
+    if(value < min || value > max){
+      throw new Error("Default values must be between min and max values");
+    }
+  });
+}
     // Determine if this is a range slider based on values or variant
     const isRange = React.useMemo(() => {
       return variant === "range" || variant === "minmax" || localValue.length > 1
@@ -195,6 +202,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
 
     const renderMinMaxLabels = () => {
       if (!showMinMaxLabels) return null
+      // if(startIcon ||endIcon) return null
 
       return (
         <>
@@ -221,20 +229,20 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
     }
 
     return (
-      <div className={`container w-fit flex gap-2 items-center justify-center ${iconPosition==="bottom"|| orientation==="vertical"?"flex-col":""} ${containerClassName}`}>
+      <div className={`container w-full flex gap-2 items-center justify-center ${iconPosition==="bottom"|| orientation==="vertical"?"flex-col":""} ${containerClassName}`}>
         {(iconPosition==="center")&&startIcon}
         <div
         className={cn(
           "relative",
           orientation === "horizontal" ? "w-full h-10" : "h-full w-10",
-          showMinMaxLabels && orientation === "horizontal" && "mb-6",
-          showMinMaxLabels && orientation === "vertical" && "ml-6",
+          (!endIcon && !startIcon)&&showMinMaxLabels && orientation === "horizontal" && "mb-6",
+          (!endIcon && !startIcon)&&showMinMaxLabels && orientation === "vertical" && "ml-6",
           className,
         )}
       >
         {/* Custom track rendered outside of SliderPrimitive.Root */}
         {renderCustomTrack()}
-        {renderMinMaxLabels()}
+        {(!startIcon|| !endIcon) &&renderMinMaxLabels()}
 
         <SliderPrimitive.Root
           ref={ref}

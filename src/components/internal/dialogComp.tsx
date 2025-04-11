@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from "../ui/dialog";
 export type DialogComponentProps = {
-  variant: "slot" | "media" | "default" |"defaultLeft";
+  variant: "slot" | "media" | "default" | "defaultLeft";
   alignment: "horizontal" | "vertical";
   triggerBtn: string;
   icon?: React.ReactNode;
@@ -19,13 +19,13 @@ export type DialogComponentProps = {
   secondaryBtn?: string;
   innerContent?: React.ReactNode;
   image: string;
-  triggerBtnVarient?:Button,
-  primaryBtnVarient?:Button,
-  secondaryBtnVarient?:Button,
+  triggerBtnVarient?: Button;
+  primaryBtnVarient?: Button;
+  secondaryBtnVarient?: Button;
   primaryButtonOnClick?: () => void;
   secondaryButtonOnClick?: () => void;
 };
-type Button="default"| "destructive"| "tertiary"| "secondary" | "link"
+type Button = "default" | "destructive" | "tertiary" | "secondary" | "link";
 function DialogComponent({
   variant,
   alignment,
@@ -101,24 +101,23 @@ function DialogComponent({
       content = (
         <Dialog {...props}>
           <DialogTrigger asChild>
-            <Button variant={triggerBtnVarient||"default"}>{triggerBtn}</Button>
+            <Button variant={triggerBtnVarient || "default"}>
+              {triggerBtn}
+            </Button>
           </DialogTrigger>
           <DialogContent
-            showCloseIcon={false}
             className={`sm:max-w-[425px] flex flex-col gap-[2rem] ${
               alignment === "vertical" ? "w-[400px]" : "max-w-auto"
             }`}
           >
             <div className="imageContainer">
-              <img src={image} alt={title} className="w-full h-[200px]"/>
+              <img src={image} alt={title} className="w-full h-[200px]" />
             </div>
             <DialogHeader>
               <DialogTitle className="w-full">
                 <h2> {title}</h2>
               </DialogTitle>
-              <DialogDescription>
-                {description}
-              </DialogDescription>
+              <DialogDescription>{description}</DialogDescription>
             </DialogHeader>
             <div>{innerContent}</div>
             <DialogFooter>
@@ -132,7 +131,7 @@ function DialogComponent({
                 {primaryBtn && (
                   <Button
                     type="submit"
-                    variant={primaryBtnVarient||"default"}
+                    variant={primaryBtnVarient || "default"}
                     className={`${
                       alignment === "horizontal" ? "w-fit" : "w-full"
                     }`}
@@ -143,7 +142,7 @@ function DialogComponent({
                 )}
                 {secondaryBtn && (
                   <Button
-                    variant={secondaryBtnVarient||"secondary"}
+                    variant={secondaryBtnVarient || "secondary"}
                     type="submit"
                     className={`${
                       alignment === "horizontal" ? "w-fit" : "w-full"
@@ -241,9 +240,7 @@ function DialogComponent({
                 </div>
                 <h2> {title}</h2>
               </DialogTitle>
-              <DialogDescription>
-                {description}
-              </DialogDescription>
+              <DialogDescription>{description}</DialogDescription>
             </DialogHeader>
             <div>{innerContent}</div>
             <DialogFooter>
