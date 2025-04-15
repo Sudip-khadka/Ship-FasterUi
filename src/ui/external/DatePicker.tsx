@@ -6,7 +6,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/components/ui/popover/popover";
 import { webColors } from "../../assets/constant/index.constant";
 // Import DateRange from react-day-picker
 import { DateRange } from "react-day-picker";

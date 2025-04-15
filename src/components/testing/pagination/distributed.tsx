@@ -1,4 +1,4 @@
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PaginationWrapper } from '@/components/ui/pagination'
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PaginationWrapper } from '@/components/ui/pagination/pagination'
 
 function DistributedPagination({iconOnly,variant}:{iconOnly?:boolean;variant?:"minimal"|"primary"|"outlined"|"default"}) {
   return (

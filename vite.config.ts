@@ -17,7 +17,7 @@ export default defineConfig({
     lib: {
       entry: 'src/main.ts',
       name: 'stacksy',
-      formats: ["es", "cjs", "umd", "iife"],
+      formats: ["es", "cjs", "umd"],
       fileName: (format) => `stacksy.${format}.js`,
     },
     rollupOptions: {

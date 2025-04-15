@@ -1,6 +1,5 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { User } from "lucide-react";
 import { cva } from "class-variance-authority";
 
 // Define cva for Avatar component's variant styles
@@ -52,6 +51,7 @@ const avatar = cva(
 
 // Avatar component
 export type AvatarProps = {
+  childClassName?: string;
   type: "image" | "initial" | "placeholder";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
   shape?: "rounded" | "circle" | "square";
@@ -88,8 +88,9 @@ function Avatar({
   src,
   initials,
   className,
-  placeholder = <User />,
+  placeholder,
   onClick,
+  childClassName,
   ...props
 }:AvatarProps) {
   return (
@@ -151,17 +152,17 @@ function Avatar({
               "rounded-[16px]":size==="xl"&&shape==="rounded",
               "rounded-[20px]":size==="2xl"&&shape==="rounded",
               "rounded-[24px]":size==="3xl"&&shape==="rounded",
-            }
+            },childClassName
           )}
         />
       )}
       {type === "initial" && initials && (
-        <span className="font-bold">{initials.toUpperCase().slice(0, 2)}</span>
+        <span className={cn("font-bold",childClassName)}>{initials.toUpperCase().slice(0, 2)}</span>
       )}
-      {type === "placeholder" && placeholder && (
+      {type === "placeholder" && (placeholder??(
         <span
           className={cn(
-            "bg-primary-100 text-primary h-full w-full  flex items-end justify-center overflow-hidden",{"rounded-full":shape==="circle"},
+            "bg-primary-100 text-primary h-full w-full  flex items-end justify-center overflow-hidden",{"rounded-full":shape==="circle",},
             {
               "rounded-[4px]":size==="xs"&&shape==="rounded",
               "rounded-[6px]":size==="sm"&&shape==="rounded",
@@ -170,7 +171,8 @@ function Avatar({
               "rounded-[16px]":size==="xl"&&shape==="rounded",
               "rounded-[20px]":size==="2xl"&&shape==="rounded",
               "rounded-[24px]":size==="3xl"&&shape==="rounded",
-            }
+            },
+            childClassName
           )}
         >
           <svg
@@ -188,7 +190,7 @@ function Avatar({
             />
           </svg>
         </span>
-      )}
+      ))}
 
       {action === "none" && (status === "offline" || status === "online") && (
         <span

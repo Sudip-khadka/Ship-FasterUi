@@ -7,7 +7,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "../ui/dialog";
+} from "../ui/dialog/dialog";
 export type DialogComponentProps = {
   variant: "slot" | "media" | "default" | "defaultLeft";
   alignment: "horizontal" | "vertical";

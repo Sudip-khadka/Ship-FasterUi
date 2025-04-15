@@ -1,4 +1,4 @@
-import TimePicker from "../components/internal/TimePicker";
+import {TimePicker} from "../components/internal/timePicker/TimePicker";
 
 export default function TimePickerDemo() {
   return (

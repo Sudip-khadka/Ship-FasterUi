@@ -1,4 +1,4 @@
-import CustomDropDown,{DropdownItemType} from "@/components/internal/dropdowns/CustomDropDown"
+import {CustomDropDown,DropdownItemType} from "@/components/internal/dropdowns/customDropdown/CustomDropDown"
 import {
     LogOut,
     Info,

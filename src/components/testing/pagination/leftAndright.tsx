@@ -5,7 +5,7 @@ import {
   PaginationNext,
   PaginationPrevious,
   PaginationWrapper,
-} from "@/components/ui/pagination";
+} from "@/components/ui/pagination/pagination";
 
 function LeftAndRight({ iconOnly }: { iconOnly?: boolean }) {
   return (

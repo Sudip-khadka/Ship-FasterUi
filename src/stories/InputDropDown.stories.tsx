@@ -1,4 +1,4 @@
-import { InputDropDown } from "@/components/internal/dropdowns/InputDropDown"; // Adjust the import path as needed
+import { InputDropDown } from "@/components/internal/dropdowns/inputDropDown/InputDropDown"; // Adjust the import path as needed
 import { Meta, StoryObj } from "@storybook/react";
 import { ChevronsDown } from "lucide-react";
 

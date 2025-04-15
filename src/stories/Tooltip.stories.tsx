@@ -1,7 +1,7 @@
 // Tooltip.stories.tsx
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Tooltip } from "../components/internal/Tooltip";
+import { Tooltip } from "../components/internal/tooltip/Tooltip";
 import { Button } from "../components/ui/button";
 
 const meta: Meta<typeof Tooltip> = {

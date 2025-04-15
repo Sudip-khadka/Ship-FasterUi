@@ -2,7 +2,7 @@ import { SearchIcon } from 'lucide-react';
 import { Badge } from '../ui/badge'
 import { useQueryState } from 'nuqs';
 // import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
-import { DateRangePicker } from "../internal/CustomDatePicker";
+import { DateRangePicker } from "../internal/datePicker/CustomDatePicker";
 import { useEffect, useState } from "react";
 import { addDays, addMonths, format } from "date-fns";
 

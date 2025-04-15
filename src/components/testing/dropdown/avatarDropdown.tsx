@@ -1,7 +1,8 @@
-import CustomDropDown, {
+import {
+  CustomDropDown,
   DropdownItemType,
-} from "@/components/internal/dropdowns/CustomDropDown";
-import { Avatar } from "@/stories";
+} from "@/components/internal/dropdowns/customDropdown/CustomDropDown";
+import { Avatar } from "@/components/ui/avatar";
 import { Settings, User, CreditCard, Plus, ChevronDown } from "lucide-react";
 import { useState } from "react";
 

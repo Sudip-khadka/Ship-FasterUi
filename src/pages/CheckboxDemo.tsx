@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Checkbox } from "../components/internal/CustomCheckbox";
+import { Checkbox } from "../components/internal/checkbox/CustomCheckbox";
 
 const CheckboxDemo: React.FC = () => {
   // Independent state for each checkbox

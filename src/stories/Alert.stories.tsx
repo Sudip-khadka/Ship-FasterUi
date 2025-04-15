@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert/alert";
 import { Info, XIcon } from "lucide-react"; // ✅ Import icons
 import "../index.css";
 import { Button } from "@/components/ui/button";

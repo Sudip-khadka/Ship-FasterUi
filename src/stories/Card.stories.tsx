@@ -9,7 +9,7 @@ import {
   CardContent,
   CardFooter,
   CardAction,
-} from "@/components/ui/card"
+} from "@/components/ui/card/card"
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",

@@ -4,7 +4,7 @@ import {
   type TooltipColor,
   type TooltipDirection,
   type PointerPosition,
-} from "../components/internal/Tooltip";
+} from "../components/internal/tooltip/Tooltip";
 
 export default function TooltipDemo() {
   const [color, setColor] = useState<TooltipColor>("Primary");

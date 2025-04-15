@@ -1,4 +1,4 @@
-import { Pagination, PaginationContent, PaginationInfo, PaginationNext, PaginationPrevious, } from '@/components/ui/pagination'
+import { Pagination, PaginationContent, PaginationInfo, PaginationNext, PaginationPrevious, } from '@/components/ui/pagination/pagination'
 
 
 function Middle({iconOnly}:{iconOnly?:boolean}) {

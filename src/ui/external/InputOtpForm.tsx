@@ -11,8 +11,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+} from "@/components/ui/card/card";
+import { Alert, AlertDescription } from "@/components/ui/alert/alert";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 // Define the form schema with Zod

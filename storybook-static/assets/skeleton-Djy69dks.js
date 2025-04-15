@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{c as s}from"./utils-CiMRq3MP.js";const n=({className:e,...o})=>t.jsx("div",{"data-slot":"skeleton",className:s("bg-accent animate-pulse rounded-md",e),...o});n.__docgenInfo={description:"",methods:[],displayName:"Skeleton"};export{n as S};

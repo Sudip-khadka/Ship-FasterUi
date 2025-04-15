@@ -5,7 +5,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-  } from "../ui/card";
+  } from "../ui/card/card";
   import { Badge } from "../ui/badge";
   import { Calendar } from "lucide-react";
 import { useEffect, useRef, useState } from "react";

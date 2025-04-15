@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CustomFileUpload } from "../components/internal/CustomFileUpload";
+import { CustomFileUpload } from "../components/internal/fileUpload/CustomFileUpload";
 
 const meta: Meta<typeof CustomFileUpload> = {
   title: "Components/CustomFileUpload",

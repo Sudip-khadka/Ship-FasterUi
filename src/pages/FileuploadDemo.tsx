@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CustomFileUpload from "@/components/internal/CustomFileUpload";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {CustomFileUpload} from "@/components/internal/fileUpload/CustomFileUpload";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs/tabs";
 
 export default function FileUploadExamples() {
   const [uploadType, setUploadType] = useState<

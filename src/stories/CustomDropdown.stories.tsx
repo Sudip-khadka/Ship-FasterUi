@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import CustomDropDown,{  DropdownItemType } from "@/components/internal/dropdowns/CustomDropDown"; 
+import { CustomDropDown, DropdownItemType } from "@/components/internal/dropdowns/customDropdown/CustomDropDown"; 
 import { Home, Settings, Laptop, Cloud, PlusCircle, User } from "lucide-react";
 // import CustomDropDown, {'{'} DropdownItemType,GroupType,ItemType,LabelType,SeparatorType,SubmenuType {'}'} from "@/components/internal/dropdowns/CustomDropDown
 

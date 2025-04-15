@@ -1,7 +1,7 @@
 // stories/progress.stories.tsx
 
 import type { Meta, StoryObj } from "@storybook/react"
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@/components/ui/progress/progress"
 
 const meta: Meta<typeof Progress> = {
     title: "Components/Progress",

@@ -16,7 +16,7 @@ import {
   DialogClose,
   DialogContent,
   DialogTrigger,
-} from "../ui/dialog";
+} from "../ui/dialog/dialog";
 import { Button } from "../ui/button";
 
 interface TableProps {

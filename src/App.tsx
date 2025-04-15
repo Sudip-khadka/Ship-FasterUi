@@ -29,11 +29,11 @@ import Zoro from "@/assets/zoro.jpg";
 // import ChartDemo from "./pages/chartdemo";
 // import ActionDropdown from "./ui/internal/ActionDropDown";
 // import { RadioButton } from "./components/ui/radiobutton";
-import { Button } from "./components/ui/button";
+import { Button } from "@/components/ui/button";
 import { AlertExamples, FormWithAlertFeedback } from "./pages/AlertExample";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import {Badge} from "./components/ui/badge";
-import { Avatar } from "./components/ui/avatar";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert/alert";
+import {Badge} from "@/components/ui/badge";
+import { Avatar } from "@/components/ui/avatar";
 import { Slider } from "./components/ui/slider";
 
 import ToastExampleApp from "./pages/Toastexample";
@@ -66,13 +66,13 @@ import CheckboxDemo from "./pages/CheckboxDemo";
 import PieChartExample from "./pages/chartdemo";
 import ToggleDemo from "./pages/ToggleDemo";
 import TextareaExample from "./pages/TextareaDemo";
-import { Tabs, TabsContent, TabsLabel, TabsList, TabsTrigger } from "./components/ui/tabs";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
-import { Input } from "./components/ui/input";
+import { Tabs, TabsContent, TabsLabel, TabsList, TabsTrigger } from "./components/ui/tabs/tabs";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card/card";
+import { Input } from "./components/ui/input/input";
 import FileUploadExamples from "./pages/FileuploadDemo";
 import Example from "./components/testing/dropdown/avatarDropdown";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb";
-import { Stat, StatIndicator } from "./components/ui/stat";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb/breadcrumb";
+import { Stat, StatIndicator } from "./components/ui/stat/stat";
 
 function App() {
   // const [selectedValue, setSelectedValue] = useState("option1");
@@ -207,7 +207,7 @@ function App() {
         <Stat overview="Overline" description="Description" value={"$99.99"} variant="withButton" statIndicator={<StatIndicator startIcon={false} variant="upTrend" size="lg" styles="accent" percentage={0} />} icon={<Bitcoin/>} button={<Button>CLickMe</Button>} />
         </div>
       <div className="w-full justify-center items-center">
-      <Avatar size="2xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-fIxHT7pNFMiBfPoFSYGJqYL5QyncODgSLkNuDGNs5vn-swTPmUQtZERlKjN7bi8Q2KpiF3gAong0VRRiDzHga-jXjRyD6ULF3Qd4KDz8" type="image" status="none" shape="circle" notification notificationCount={2} onClick={()=>alert("you have 2 notifications")} />
+      <Avatar className="bg-amber-200" size="2xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-fIxHT7pNFMiBfPoFSYGJqYL5QyncODgSLkNuDGNs5vn-swTPmUQtZERlKjN7bi8Q2KpiF3gAong0VRRiDzHga-jXjRyD6ULF3Qd4KDz8" type="initial" status="none" shape="circle" notification  notificationCount={2} onClick={()=>alert("you have 2 notifications")} initials="Sk" />
       <div className="w-[300px] mx-auto"><Example/></div>
       </div>
         <TextareaExample />

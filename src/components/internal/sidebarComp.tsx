@@ -23,11 +23,11 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../ui/collapsible";
+} from "../ui/collapsible/collapsible";
 import { Button } from "../ui/button";
 import React from "react";
-import { Alert, AlertTitle } from "../ui/alert";
-import { Rating } from "../ui/rating";
+import { Alert, AlertTitle } from "../ui/alert/alert";
+import { Rating } from "../ui/rating/rating";
 
 export type MenuItem = {
   title: string;

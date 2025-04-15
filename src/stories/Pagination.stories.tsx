@@ -9,7 +9,7 @@ import {
   PaginationEllipsis,
   PaginationWrapper,
   PaginationInfo,
-} from "@/components/ui/pagination"
+} from "@/components/ui/pagination/pagination"
 
 export default {
   title: "Components/Pagination",

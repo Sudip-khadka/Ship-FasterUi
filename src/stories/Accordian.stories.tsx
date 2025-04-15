@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion/accordion"
 import { Badge } from "@/components/ui/badge"
 import { MoreHorizontal, StarIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CustomPieChart, { ChartDataItem } from "../components/internal/PieChart";
+import  {CustomPieChart, ChartDataItem } from "../components/internal/pieChart/PieChart";
 
 export const PieChartExample = () => {
   // State to control tooltip visibility

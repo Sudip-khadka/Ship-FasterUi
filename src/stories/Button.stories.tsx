@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../index.css';
-import { Button } from '../components/ui/button';
+import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, HelpCircleIcon } from 'lucide-react';
 
 const meta: Meta<typeof Button> = {

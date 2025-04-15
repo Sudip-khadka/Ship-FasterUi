@@ -1,14 +1,14 @@
-import ProgressBarComponent from "@/components/internal/ProgressBar";
+import {ProgressBar} from "@/components/internal/progressBar";
 import { Meta, StoryObj } from "@storybook/react";
 import { TvIcon } from "lucide-react";
 
-const meta: Meta<typeof ProgressBarComponent> = {
+const meta: Meta<typeof ProgressBar> = {
     title: "UI/CustomProgressBar",
-    component: ProgressBarComponent,
+    component: ProgressBar,
     tags:["autodocs"],
 }
 export default meta;
-type Story = StoryObj<typeof ProgressBarComponent>;
+type Story = StoryObj<typeof ProgressBar>;
 export const ProgressBarStory: Story = {
   args: {
     label: "Progress Bar Label",

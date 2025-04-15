@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Toast, { ToastProps } from "../components/internal/ToastNotification";
+import  {Toast, ToastProps } from "../components/internal/toast/Toast";
 
 const SimpleToastExample: React.FC = () => {
   const [toast, setToast] = useState<ToastProps | null>(null);

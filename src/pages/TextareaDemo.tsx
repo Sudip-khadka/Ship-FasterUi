@@ -1,4 +1,4 @@
-import { Textarea } from "@/components/internal/TextField";
+import { Textarea } from "@/components/internal/textfield/TextField";
 import { useState } from "react";
 
 export default function TextareaExample() {
